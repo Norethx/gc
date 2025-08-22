@@ -6,21 +6,21 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 16:01:43 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/22 01:49:22 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/08/22 19:44:36 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_clean_allocs(t_list **lst);
+static void	ft_clean_allocs(t_gc_list **lst);
 
-void	ft_gc_sweep()
+void	ft_gc_sweep(void)
 {
 	t_gcext_list	*gc;
 	t_gc_list		*aux;
 
 	gc = ft_gc_start();
-	if (!gc || !gc->head)
+	if (!gc)
 		return ;
 	aux = gc->head;
 	while (aux)
@@ -43,13 +43,13 @@ void	ft_gc_sweep()
 	return ;
 }
 
-static void	ft_clean_allocs(t_list **lst)
+static void	ft_clean_allocs(t_gc_list **lst)
 {
-	t_list	*aux;
+	t_gc_list	*aux;
 
 	aux = lst[0];
 	lst[0] = aux->next;
 	if (aux->content)
-		ft_lstdelone(aux->content, free);
+		ft_gclstdelone(&aux, free);
 	free(aux);
 }

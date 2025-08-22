@@ -6,13 +6,13 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 15:56:26 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/21 23:17:21 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/08/22 11:05:47 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_gc_mark(t_gc_list *lst)
+void	ft_gc_mark(t_gc_list *lst)
 {
 	if (!lst)
 		return ;

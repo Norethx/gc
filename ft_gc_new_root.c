@@ -6,42 +6,49 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 14:17:13 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/22 01:36:48 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/08/22 20:30:05 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static void	*ft_new_root_aux(char *categ, t_gc_type type);
-static int ft_add_meta(t_gc_list **lst);
-void	*ft_add_roots_aux(t_gc_list *new_root, char *categ);
+static int	ft_add_meta(t_gc_list **lst);
+void		*ft_add_roots_aux(t_gc_list *new_root, char *categ);
 
-void *ft_gc_new_root(char *categ)
+void	*ft_gc_new_root(char *categ)
 {
-	t_gc_list			*aux;
-	t_gcext_list		*all_allocs;
+	t_gc_list		*aux;
+	t_gcext_list	*all_allocs;
+	t_list			*aux_tlist;
 
 	all_allocs = ft_gc_start();
+	aux_tlist = NULL;
 	if (!all_allocs)
 		return (NULL);
 	aux = all_allocs->head;
-	while (aux)
-	{
-		if ((aux->type == GC_ROOT || aux->type == GC_SYSROOT)
-			&& !ft_strcmp(((t_root_list *)aux->content)->categ, categ))
-			return(NULL);
+	while (aux && !(aux->type == GC_SYSROOT
+			&& !ft_strcmp(((t_root_list *)aux->content)->categ, "gc_roots")))
 		aux = aux->next;
-	}
-	if (!ft_strcmp(categ, "gc_meta") || !ft_strcmp(categ, "gc_roots"))
+	if (!aux && (!ft_strcmp(categ, "gc_meta") || !ft_strcmp(categ, "gc_roots")))
 		return (ft_new_root_aux(categ, GC_SYSROOT));
 	else
-		return (ft_new_root_aux(categ, GC_ROOT));
+		aux_tlist = ((t_root_list *)aux->content)->lst->head;
+	if (!ft_strcmp(categ, "gc_roots") || !ft_strcmp(categ, "gc_meta"))
+		return (NULL);
+	while (aux_tlist)
+	{
+		if (!ft_strcmp(ft_to_root_list(aux_tlist->content)->categ, categ))
+			return (NULL);
+		aux_tlist = aux_tlist->next;
+	}
+	return (ft_new_root_aux(categ, GC_ROOT));
 }
 
-static void *ft_new_root_aux(char *categ, t_gc_type type)
+static void	*ft_new_root_aux(char *categ, t_gc_type type)
 {
-	t_gc_list *new[3];
-	int	i;
+	t_gc_list	*new[3];
+	int			i;
 
 	i = 0;
 	new[2] = ft_gcfct_register(ft_root_newlst(), type);
@@ -62,9 +69,9 @@ static void *ft_new_root_aux(char *categ, t_gc_type type)
 	return (new[2]);
 }
 
-static	int ft_add_meta(t_gc_list **lst)
+static int	ft_add_meta(t_gc_list **lst)
 {
-	t_list *new[3];
+	t_list	*new[3];
 	int		i;
 
 	i = 0;
@@ -74,12 +81,14 @@ static	int ft_add_meta(t_gc_list **lst)
 		if (!new[i++])
 		{
 			while (i-- > 0)
-				if(new[i])
+			{
+				if (new[i])
 				{
 					if (i == 0 && new[i]->prev)
 						new[i]->prev->next = NULL;
 					free(new[i]);
 				}
+			}
 			return (1);
 		}
 	}
@@ -101,8 +110,8 @@ void	*ft_add_roots_aux(t_gc_list *new_root, char *categ)
 	{
 		roots = aux->content;
 		if ((aux->type == GC_ROOT || aux->type == GC_SYSROOT)
-		&& !ft_strcmp(roots->categ, categ))
-			break;
+			&& !ft_strcmp(roots->categ, categ))
+			break ;
 		aux = aux->next;
 	}
 	if (!aux)

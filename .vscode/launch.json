@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/onaldo/gc_git",
-      "program": "/home/onaldo/gc_git/build/Debug/outDebug",
+      "cwd": "/nfs/homes/rgomes-d/git_Noreth/gc",
+      "program": "/nfs/homes/rgomes-d/git_Noreth/gc/a.out",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

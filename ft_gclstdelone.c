@@ -6,7 +6,7 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 11:11:40 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/21 22:59:59 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/08/22 11:06:11 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,3 @@ void	ft_gclstdelone(t_gc_list **lst, void (*del)(void *))
 	free(lst[0]);
 	lst[0] = NULL;
 }
-
