@@ -6,7 +6,7 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 09:57:31 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/22 20:33:07 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/08/31 20:20:53 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,10 @@ void					ft_gc_collect(void);
 void					*ft_gc_register_root(t_gc_list *n_root, char *categ);
 t_gc_list				*ft_to_gc_list(void *x);
 t_root_list				*ft_to_root_list(void *x);
+void					ft_gc_rm_root(t_ext_list **root, t_list *rm_root);
+t_list					*ft_gc_clean_root(char *categ);
+void					ft_gc_del_root(char *categ);
+void					ft_gc_rm_meta(char *categ);
+
 
 #endif

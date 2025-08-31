@@ -6,7 +6,7 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 14:17:13 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/22 20:30:05 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/08/31 20:36:29 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ static int	ft_add_meta(t_gc_list **lst)
 	return (0);
 }
 
-void	*ft_add_roots_aux(t_gc_list *new_root, char *categ)
+static void	*ft_add_roots_aux(t_gc_list *new_root, char *categ)
 {
 	t_list			*new;
 	t_root_list		*roots;

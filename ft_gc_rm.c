@@ -6,7 +6,7 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 21:22:56 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/22 11:05:57 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/08/31 19:49:08 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_gc_rm(t_gc_list **lst)
 	else
 		lst[0]->prev->next = lst[0]->next;
 	ft_gclstdelone(lst, &free);
-	if (!all_allocs->tail)
+	if (!all_allocs->head)
 		all_allocs->tail = NULL;
 	return (0);
 }
