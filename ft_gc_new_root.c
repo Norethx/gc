@@ -6,15 +6,15 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 14:17:13 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/31 20:36:29 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/09/01 19:26:49 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "gc.h"
 
 static void	*ft_new_root_aux(char *categ, t_gc_type type);
 static int	ft_add_meta(t_gc_list **lst);
-void		*ft_add_roots_aux(t_gc_list *new_root, char *categ);
+static void	*ft_add_roots_aux(t_gc_list *new_root, char *categ);
 
 void	*ft_gc_new_root(char *categ)
 {

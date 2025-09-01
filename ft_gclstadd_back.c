@@ -6,11 +6,11 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 22:33:13 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/22 11:06:09 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/09/01 19:26:05 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "gc.h"
 
 void	ft_gclstadd_back(t_gcext_list **lst, t_gc_list *new)
 {

@@ -6,11 +6,11 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 11:24:58 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/22 11:05:32 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/09/01 19:27:49 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "gc.h"
 
 t_gc_list	*ft_gc_calloc(size_t nmemb, size_t size, t_gc_type type)
 {

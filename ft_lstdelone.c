@@ -6,11 +6,11 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 11:11:40 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/22 11:06:16 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/09/01 19:25:50 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "gc.h"
 
 void	ft_lstdelone(t_list **lst, void (*del)(void *))
 {

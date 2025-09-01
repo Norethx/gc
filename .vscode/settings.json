@@ -57,9 +57,10 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
-    "stdio.h": "c",
-    "fcntl.h": "c",
-    "stdlib.h": "c",
-    "ft_gc_cast,c": "c"
-  }
+	"stdio.h": "c",
+	"fcntl.h": "c",
+	"stdlib.h": "c",
+	"ft_gc_cast,c": "c",
+	"gc.h": "c"
+}
 }

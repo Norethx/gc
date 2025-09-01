@@ -6,11 +6,11 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 13:09:14 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/22 11:05:44 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/09/01 19:27:02 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "gc.h"
 
 t_gc_list	*ft_gc_malloc(size_t size, t_gc_type type)
 {

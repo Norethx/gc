@@ -6,11 +6,11 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 20:26:54 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/22 20:41:19 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/09/01 19:27:34 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "gc.h"
 
 inline t_gc_list	*ft_to_gc_list(void *x)
 {

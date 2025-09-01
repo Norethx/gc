@@ -6,11 +6,11 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 16:23:14 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/31 14:03:26 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/09/01 19:26:42 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "gc.h"
 
 static void	*ft_add_root(t_ext_list *root, t_gc_list *n_root);
 

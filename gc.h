@@ -6,12 +6,12 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 09:57:31 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/08/31 20:20:53 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/09/01 18:56:33 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef GC_H
+# define GC_H
 
 # include <fcntl.h>
 # include <stdarg.h>
@@ -61,13 +61,6 @@ typedef struct s_root_list
 	t_ext_list			*lst;
 }						t_root_list;
 
-typedef struct s_ext_root
-{
-	t_root_list			root;
-	t_root_list			next;
-	t_root_list			prev;
-}						t_ext_root;
-
 t_gcext_list			*ft_gc_start(void);
 void					ft_lstadd_back(t_ext_list **lst, t_list *new);
 void					ft_gclstadd_back(t_gcext_list **lst, t_gc_list *new);
@@ -96,6 +89,6 @@ void					ft_gc_rm_root(t_ext_list **root, t_list *rm_root);
 t_list					*ft_gc_clean_root(char *categ);
 void					ft_gc_del_root(char *categ);
 void					ft_gc_rm_meta(char *categ);
-
+void					ft_gc_end(void);
 
 #endif
