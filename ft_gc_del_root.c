@@ -6,7 +6,7 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 10:03:37 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/09/01 19:27:20 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:20:33 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,14 @@ void	ft_gc_del_root(char *categ)
 {
 	t_list		*aux;
 	t_root_list	*aux_root[2];
-	t_gc_list	*aux_gc;
 
 	aux = ft_gc_clean_root(categ);
-	aux_gc = NULL;
 	aux_root[0] = ((t_gc_list *)aux->content)->content;
 	if (!aux_root[0])
 		return ;
 	aux_root[1] = ft_fix_root();
 	if (!aux_root[1] || !aux_root[0])
 		return ;
-	ft_gc_rm_meta(categ);
 	if (aux_root[1]->lst->head == aux)
 		aux_root[1]->lst->head = aux_root[1]->lst->head->next;
 	if (aux_root[1]->lst->tail == aux)
@@ -37,8 +34,8 @@ void	ft_gc_del_root(char *categ)
 		aux->prev->next = aux->next;
 	if (aux->next)
 		aux->next->prev = aux->prev;
-	aux_gc = aux->content;
-	ft_gc_rm(&aux_gc);
+	ft_gc_rm_meta(categ);
+	ft_gc_rm((t_gc_list **)&aux->content);
 	free(aux);
 }
 

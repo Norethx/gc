@@ -6,13 +6,13 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 19:01:03 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/09/01 19:26:36 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:44:46 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gc.h"
 
-static void	ft_gc_rm_meta_aux(t_ext_list **root, t_list *rm_root, int nb);
+static void	ft_gc_rm_meta_aux(t_ext_list **root, t_list *rm_root);
 
 void	ft_gc_rm_meta(char *categ)
 {
@@ -21,7 +21,6 @@ void	ft_gc_rm_meta(char *categ)
 	t_list			*aux_tlist;
 
 	all_allocs = ft_gc_start();
-	aux_tlist = NULL;
 	if (!all_allocs)
 		return ;
 	aux = all_allocs->head;
@@ -35,7 +34,7 @@ void	ft_gc_rm_meta(char *categ)
 	{
 		if (!ft_strcmp(((t_gc_list *)aux_tlist->content)->content, categ))
 		{
-			ft_gc_rm_meta_aux(&(ft_to_root_list(aux)->lst), aux_tlist, 0);
+			ft_gc_rm_meta_aux(&(ft_to_root_list(aux)->lst), aux_tlist);
 			return ;
 		}
 		aux_tlist = aux_tlist->next;
@@ -43,23 +42,29 @@ void	ft_gc_rm_meta(char *categ)
 	return ;
 }
 
-static void	ft_gc_rm_meta_aux(t_ext_list **root, t_list *rm_root, int nb)
+static void	ft_gc_rm_meta_aux(t_ext_list **root, t_list *rm_root)
 {
-	t_gc_list	*aux;
+	t_list	*aux[2];
+	int		i;
 
-	if (!*root || !rm_root)
-		return ;
-	if (nb < 1)
-		ft_gc_rm_meta_aux(root, rm_root->next, nb + 1);
-	if (root[0]->head == rm_root)
-		root[0]->head = root[0]->head->next;
-	if (root[0]->tail == rm_root)
-		root[0]->tail = root[0]->tail->prev;
-	if (rm_root->prev)
-		rm_root->prev->next = rm_root->next;
-	if (rm_root->next)
-		rm_root->next->prev = rm_root->prev;
-	aux = ((t_gc_list *)rm_root->content);
-	ft_gc_rm(&aux);
-	free(rm_root);
+	i = 0;
+	aux[0] = rm_root;
+	while (i < 2)
+	{
+		if (!*root || !aux[0])
+			return ;
+		if ((t_list *)root[0]->head == (t_list *)aux[0])
+			root[0]->head = (t_list *)root[0]->head->next;
+		if ((t_list *)root[0]->tail == (t_list *)aux[0])
+			root[0]->tail = (t_list *)root[0]->tail->prev;
+		if (aux[0]->prev)
+			aux[0]->prev->next = (t_list *)aux[0]->next;
+		if (aux[0]->next)
+			aux[0]->next->prev = (t_list *)aux[0]->prev;
+		aux[1] = aux[0]->next;
+		ft_gc_rm(((t_gc_list **)&aux[0]->content));
+		free(aux[0]);
+		aux[0] = aux[1];
+		i++;
+	}
 }

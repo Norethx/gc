@@ -6,11 +6,11 @@
 /*   By: rgomes-d <rgomes-d@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 10:03:21 by rgomes-d          #+#    #+#             */
-/*   Updated: 2025/09/01 18:51:03 by rgomes-d         ###   ########.fr       */
+/*   Updated: 2025/09/01 20:16:28 by rgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "gc.h"
 
 static t_list	*ft_to_root(char *categ);
 
